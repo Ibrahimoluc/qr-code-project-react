@@ -1,0 +1,144 @@
+/* Genel Sayfa Ayarlarý */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Ana Konteyner */
+.container {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* KART TASARIMI: Her bölümü beyaz bir kutu içine alýr */
+.upload-from-device,
+.upload-from-drive,
+.listFile-interaction-components,
+.listFile-area {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+}
+
+/* Button Stilleri */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+
+/* Input Stilleri */
+input[type="file"],
+input[type="datetime-local"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box; /* Padding taþmasýný engeller */
+}
+
+/* App.js Özelleþtirmeleri */
+.file-details {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #007bff;
+    margin-top: 20px;
+}
+
+    .file-details p {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+
+/* DriveFiles.js Özelleþtirmeleri */
+.listFile-interaction-components {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.NextPrev-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.listFile-area ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.listFile-area li {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+    .listFile-area li:last-child {
+        border-bottom: none;
+    }
+
+    .listFile-area li:hover {
+        background-color: #f9f9f9;
+    }
+
+.listFile-area input[type="radio"] {
+    margin-right: 15px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.listFile-area a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    flex-grow: 1; /* Yazýnýn tüm alaný kaplamasýný saðlar */
+}
+
+    .listFile-area a:hover {
+        color: #007bff;
+    }
+
+/* Loading Metinleri */
+p.loading {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
