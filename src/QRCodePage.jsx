@@ -9,7 +9,7 @@ function QRCodePage() {
             <div className="qr-code-section">
                 <h1>QR Code for your file</h1>
                 {/*<p>End Time is {searchParams.get("q")}</p>*/}
-                <QRCode value={searchParams.get("link")} size={256} />
+                <QRCode value={searchParams.get("link")} onError={() => console.log("asd")} size={256} />
             </div>
             
             

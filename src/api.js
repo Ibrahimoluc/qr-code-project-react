@@ -39,11 +39,18 @@ export async function getData(path, queryParams = {}) {
             return;
         }
 
+        const result = await response.json();
+
+        if (response.status === 400) {
+            console.log("api getData 400");
+            alert(result.error);
+            throw new Error(result.error);
+        }
+
         if (!response.ok) {
             throw new Error(`Response status: ${response.status}`);
         }
 
-        const result = await response.json();
         return result;
     } catch (error) {
         console.error(error.message);
@@ -62,6 +69,9 @@ export async function createQrLinkForDriveFile(fileId, endTime) {
 
     const result = await getData(path, params);
     const token = result.token;
+    if (token === undefined) {
+        throw new Error("Qr code oluþturulamadý");
+    }
     console.log("token:" + token);
 
     const urlQR = `${BASE_API}/Home/File?token=${token}\0`;
