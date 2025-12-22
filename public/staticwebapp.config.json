@@ -1,6 +1,8 @@
 {
-    "navigationFallback": {
-        "rewrite": "",
-        "exclude": [ "/images/*.{png,jpg,gif}", "/css/*" ]
-    }
+    "routes": [
+        {
+            "route": "/DriveFiles",
+            "rewrite": "/index.html"
+        }
+    ]
 }
