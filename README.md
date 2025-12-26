@@ -1,16 +1,47 @@
-# React + Vite
+# FileSharingWithQR - Client App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the React-based Single Page Application (SPA) interface for the FileSharingWithQR API. It enables users to upload files, select files from Google Drive, set access duration, and generate QR codes.
 
-Currently, two official plugins are available:
+## 🎨 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Drag & Drop Upload:** Modern UI for easy local file uploading.
+- **Google Drive Picker:** Integrated interface to browse and select files directly from Google Drive.
+- **Duration Selection:** Users can choose how long the file should remain accessible (e.g., 15 Mins, 1 Hour, 1 Day).
+- **QR Code Generation:** Visualizes the JWT token returned from the API as a QR code.
+- **SPA Routing:** Seamless page transitions using React Router DOM.
 
-## React Compiler
+## 🛠 Tech Stack
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 18
+- React Router DOM
+- qrcode.react (QR Rendering)
+- Bootstrap / Custom CSS
 
-## Expanding the ESLint configuration
+## ⚙️ Setup
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Install Dependencies
+```bash
+npm install
+npm run dev
+```
+
+### 2. Enviroment Variables
+
+Set following enviroment variables either in ".env" file or in your running environment.
+
+- VITE_API_URL: <YOUR_BACKEND_API_URL>
+
+## Deployment Notes
+
+This project deployed at Render. You can try it on this link: https://qr-code-project-react.onrender.com/ 
+
+Since this is a Single Page Application (SPA), it can be hosted on platforms like Render, Netlify, or Azure Static Web Apps.
+
+⚠️ Critical: Handling Page Refreshes (404 Errors)
+SPA routing happens on the client side. If a user refreshes a sub-route (e.g., /driveFiles), the server might return a 404 error because that file doesn't physically exist. You must configure a Rewrite Rule on your host.
+
+Configuration for Render: Go to your Static Site settings -> Redirects/Rewrites and add this rule:
+
+- Source: /*
+- Destination: /index.html
+- Action: Rewrite
