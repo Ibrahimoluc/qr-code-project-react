@@ -9,7 +9,14 @@ function App() {
 	const navigate = useNavigate();
 
 	const onFileChange = (event) => {
-		setSelectedFile(event.target.files[0]);
+		try {
+			const file = event.target.files[0];
+			setSelectedFile(file);
+			alert(`Seçilen Dosya: ${file.name}, Tip: ${file.type}, Boyut: ${file.size}`);
+		} catch (error) {
+			console.log("Dosya'da hata!!!!");
+			alert(error.message);
+		}
 	};
 
 	const onFileUpload = async () => {
