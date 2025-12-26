@@ -75,7 +75,7 @@ function App() {
 					<h3>File Details:</h3>
 					<p><strong>Name:</strong> {selectedFile.name}</p>
 					<p><strong>Type:</strong> {selectedFile.type}</p>
-					<p><strong>Last Modified:</strong> {selectedFile.lastModifiedDate.toDateString()}</p>
+					<p><strong>Last Modified:</strong> {new Date(selectedFile.lastModified).toDateString()}</p>
 				</div>
 			);
 		} else {
