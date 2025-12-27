@@ -118,7 +118,14 @@ function App() {
 
 			<div className="upload-from-drive">
 				<h3>Or Use Google Drive</h3>
-				<button type="button" onClick={() => navigate("/DriveFiles")} style={{ width: '100%', backgroundColor: '#28a745' }}>
+				<button
+					type="button"  // <--- ÝÞTE EKSÝK OLAN HAYATÝ PARÇA BU
+					onClick={(e) => {
+						e.preventDefault(); // Safari için ekstra güvenlik (varsayýlan davranýþý öldür)
+						navigate("/DriveFiles");
+					}}
+					style={{ width: '100%', backgroundColor: '#28a745' }}
+				>
 					Select from Google Drive
 				</button>
 			</div>
